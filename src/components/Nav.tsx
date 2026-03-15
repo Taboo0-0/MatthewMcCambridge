@@ -35,12 +35,12 @@ export default function Nav() {
             >
               About
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection('projects')}
               className="text-gray-300 hover:text-white transition-colors duration-200"
             >
               Projects
-            </button>
+            </button> */}
             <button
               onClick={() => scrollToSection('skills')}
               className="text-gray-300 hover:text-white transition-colors duration-200"

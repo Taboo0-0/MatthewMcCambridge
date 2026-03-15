@@ -4,22 +4,22 @@ import { motion } from 'framer-motion';
 
 const experiences = [
   {
-    year: '2024',
-    title: 'Software Engineering Intern',
-    company: 'Tech Startup',
-    description: 'Built scalable web applications using React and Node.js'
+    year: '2025',
+    title: 'McCambridge Consulting Ltd – Technology Intern',
+    company: 'Web Development',
+    description: 'Shadowed senior developers and was involved in discussion on ongoing projects.'
   },
   {
-    year: '2023',
+    year: '2022-2026',
     title: 'Computer Science Student',
-    company: 'University',
-    description: 'Focus on algorithms, system design, and software engineering'
+    company: 'Secondary School',
+    description: 'Learning all fundamental concepts of computer science and software development, with a focus on building projects and contributing to open-source.'
   },
   {
-    year: '2022',
+    year: '2020-Present',
     title: 'Freelance Developer',
     company: 'Self-employed',
-    description: 'Developed custom web solutions for small businesses'
+    description: 'Developing customs projects for clients, including websites, automation tools, and small applications. Focused on delivering high-quality, efficient solutions tailored to client needs.'
   }
 ];
 
@@ -87,6 +87,28 @@ export default function About() {
             </div>
           </motion.div>
         </div>
+
+        {/* Spotify Playlist */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-16"
+        >
+          <div className="flex justify-center">
+            <iframe
+              data-testid="embed-iframe"
+              style={{ borderRadius: '12px' }}
+              src="https://open.spotify.com/embed/playlist/7GAW29EzL2w1DZq4MpqeBd?utm_source=generator&theme=0"
+              width="100%"
+              height="352"
+              frameBorder="0"
+              allowFullScreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
