@@ -5,10 +5,10 @@ import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 import Image from 'next/image';
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -69,10 +69,10 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
         >
           <button 
-            onClick={scrollToProjects}
+            onClick={scrollToAbout}
             className="px-8 py-3 bg-white text-black rounded-full font-semibold hover:bg-gray-200 transition-colors cursor-pointer"
           >
-            View Projects
+            About Me
           </button>
           <button 
             onClick={scrollToContact}
