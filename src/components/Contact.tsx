@@ -2,8 +2,43 @@
 
 import { motion } from 'framer-motion';
 import { Mail, Github, Linkedin, Twitter } from 'lucide-react';
+import { useState, useRef } from 'react';
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formData = new FormData(e.currentTarget);
+      
+      const response = await fetch('https://formspree.io/f/meerlkew', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        formRef.current?.reset();
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('Sorry, there was an error sending your message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 px-6 bg-gray-900 dark:bg-gray-900">
       <div className="max-w-4xl mx-auto">
@@ -33,7 +68,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700"
           >
-            <form className="space-y-6">
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                   Name
@@ -41,6 +76,8 @@ export default function Contact() {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  required
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="Your name"
                 />
@@ -53,6 +90,8 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  required
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   placeholder="your@email.com"
                 />
@@ -64,7 +103,9 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={5}
+                  required
                   className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
                   placeholder="Tell me about your project..."
                 ></textarea>
@@ -72,10 +113,17 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"
+                disabled={isSubmitting}
+                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
+
+              {isSubmitted && (
+                <div className="text-green-400 text-center mt-4">
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
             </form>
           </motion.div>
 
@@ -95,20 +143,17 @@ export default function Contact() {
             </div>
 
             <div className="space-y-4">
-              <a href="mailto:hello@mathew.com" className="flex items-center text-gray-400 hover:text-white transition-colors">
+              <a href="mailto:matthewpmmc@gmail.com" className="flex items-center text-gray-400 hover:text-white transition-colors">
                 <Mail size={20} className="mr-3" />
-                hello@mathew.com
+                matthewpmmc@gmail.com
               </a>
 
               <div className="flex space-x-4 pt-4">
-                <a href="https://github.com" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://github.com/Taboo0-0" className="text-gray-400 hover:text-white transition-colors">
                   <Github size={24} />
                 </a>
-                <a href="https://linkedin.com" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/matthew-mccambridge-855b2a259/?skipRedirect=true" className="text-gray-400 hover:text-white transition-colors">
                   <Linkedin size={24} />
-                </a>
-                <a href="https://twitter.com" className="text-gray-400 hover:text-white transition-colors">
-                  <Twitter size={24} />
                 </a>
               </div>
             </div>

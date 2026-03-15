@@ -88,16 +88,13 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="flex justify-center space-x-6"
         >
-          <a href="https://github.com" className="text-gray-400 hover:text-white transition-colors">
+          <a href="https://github.com/Taboo0-0" className="text-gray-400 hover:text-white transition-colors">
             <Github size={24} />
           </a>
-          <a href="https://linkedin.com" className="text-gray-400 hover:text-white transition-colors">
+          <a href="https://www.linkedin.com/in/matthew-mccambridge-855b2a259/" className="text-gray-400 hover:text-white transition-colors">
             <Linkedin size={24} />
           </a>
-          <a href="https://twitter.com" className="text-gray-400 hover:text-white transition-colors">
-            <Twitter size={24} />
-          </a>
-          <a href="mailto:hello@mathew.com" className="text-gray-400 hover:text-white transition-colors">
+          <a href="mailto:matthewpmmc@gmail.com" className="text-gray-400 hover:text-white transition-colors">
             <Mail size={24} />
           </a>
         </motion.div>
