@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Matthew - Developer Portfolio",
   description: "Premium portfolio of Matthew, a computer science student and developer specializing in elegant software solutions.",
+  icons: {
+    icon: '/MatthewMcCambridge/profile.jpg',
+  },
 };
 
 export default function RootLayout({

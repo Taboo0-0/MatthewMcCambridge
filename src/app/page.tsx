@@ -11,9 +11,9 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       <Nav />
       <Hero />
-      {/* <Projects /> */}
       <About />
       <Skills />
+      <Projects />
       <CodePhilosophy />
       <Contact />
     </div>
