@@ -7,30 +7,29 @@ import Image from 'next/image';
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory and payment processing.',
-    image: '/project1.jpg',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    github: 'https://github.com',
-    demo: 'https://demo.com'
+    title: 'Pomodoro Timer',
+    description: 'A clean, distraction-free Pomodoro timer with focus analytics and site blocking.',
+    image: '/MatthewMcCambridge/pomoimg.png',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Chrome Extension'],
+    demo: 'https://chromewebstore.google.com/detail/pomo-%E2%80%94-minimalist-pomodor/heeenniacnjglmmgmcladfflcdjlabei?authuser=0&hl=en-GB'
   },
   {
     id: 2,
-    title: 'Task Management App',
-    description: 'Collaborative task management with real-time updates and team features.',
-    image: '/project2.jpg',
-    tech: ['Next.js', 'TypeScript', 'Prisma', 'Socket.io'],
+    title: 'Coming Soon',
+    description: '',
+    image: '/MatthewMcCambridge/comingsoon.jpg',
+    tech: [],
     github: 'https://github.com',
-    demo: 'https://demo.com'
+    demo: 'https://github.com/Taboo0-0'
   },
   {
     id: 3,
-    title: 'AI Chat Interface',
-    description: 'Modern chat interface powered by GPT with conversation history.',
-    image: '/project3.jpg',
-    tech: ['React', 'OpenAI API', 'TailwindCSS', 'Firebase'],
+    title: 'Coming Soon',
+    description: '',
+    image: '/MatthewMcCambridge/comingsoon.jpg',
+    tech: [],
     github: 'https://github.com',
-    demo: 'https://demo.com'
+    demo: 'https://github.com/Taboo0-0'
   }
 ];
 
@@ -47,7 +46,7 @@ export default function Projects() {
           Featured Projects
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto w-fit">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
@@ -80,13 +79,15 @@ export default function Projects() {
                 </div>
 
                 <div className="flex space-x-4">
-                  <a href={project.github} className="flex items-center text-gray-400 hover:text-white transition-colors">
-                    <Github size={16} className="mr-1" />
-                    Code
-                  </a>
-                  <a href={project.demo} className="flex items-center text-gray-400 hover:text-white transition-colors">
+                  {/* {project.github && (
+                    <a href={project.github} className="flex items-center text-gray-400 hover:text-white transition-colors">
+                      <Github size={16} className="mr-1" />
+                      Code
+                    </a>
+                  )} */}
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center text-gray-400 hover:text-white transition-colors">
                     <ExternalLink size={16} className="mr-1" />
-                    Demo
+                    Project
                   </a>
                 </div>
               </div>

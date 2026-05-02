@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
-import Image from 'next/image';
 
 export default function Hero() {
   const scrollToAbout = () => {
@@ -34,12 +33,10 @@ export default function Hero() {
           className="mb-8"
         >
           <div className="w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-4 border-white/20 bg-white/10 backdrop-blur-sm">
-            <Image
-              src="/profile.jpg" // Add your profile image to public/
+            <img
+              src="/MatthewMcCambridge/profile.jpg"
               alt="Matthew"
-              width={128}
-              height={128}
-              className="object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
         </motion.div>
